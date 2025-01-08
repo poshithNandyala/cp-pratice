@@ -20,14 +20,17 @@ int main()
         for (int i = 0; i < n; i++)
         {
             cin >> a[i];
-            if(a[i] == 0){
+            if (a[i] == 0)
+            {
                 zero *= 2;
             }
-            else if(a[i] == 1){
-                one++;
+            else if (a[i] == 1)
+            {
+                else if (a[i] == 1)
+                {
+                    one++;
+                }
             }
+            cout << one * zero << endl;
         }
-        cout << one * zero << endl;
-
     }
-}
