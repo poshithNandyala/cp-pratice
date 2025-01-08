@@ -26,10 +26,7 @@ int main()
             }
             else if (a[i] == 1)
             {
-                else if (a[i] == 1)
-                {
-                    one++;
-                }
+                one++;
             }
             cout << one * zero << endl;
         }
