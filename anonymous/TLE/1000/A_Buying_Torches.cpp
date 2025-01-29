@@ -13,26 +13,15 @@ int main()
     cin >> t;
     while (t--)
     {
-        int x, y, k;
+        ll x, y, k;
         cin >> x >> y >> k;
-        ll ans = 1;
-        int c = 0, s = 2;
-        if (x > y)
-        {
-            c = x / y;
-            if (x % y == 0)
-            {
-                c--;
-            }
-            if (c > k)
-            {
-                x -= (k * y);
-                ans = k;
-            }
-            if (c <= k)
-            {
-                int want = k - c;
-                int rem = (x % y == 0) ? c : x % y;
-            }
-        }
+        ll sticks = 1, ans = 0;
+        sticks -= (k * y);
+        ans += k;
+        ll need = k;
+        need -= sticks;
+        x -= 1;
+        ans += (need + x - 1) / x;
+        cout << ans << endl;
     }
+}
