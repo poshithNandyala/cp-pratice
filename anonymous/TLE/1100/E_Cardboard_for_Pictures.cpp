@@ -36,7 +36,6 @@ int main()
             if (cnt > c)
             {
                 high = mid - 1;
-             
             }
             else if (cnt == c)
             {
@@ -47,7 +46,6 @@ int main()
             {
                 low = mid + 1;
             }
-      }
-        
+        }
     }
 }
