@@ -1,6 +1,7 @@
 Let me break down the specific performance issues in your code:
 
 1. Recursive Function Overhead:
+
 ```cpp
 int binarySearch(int mi, int mx, int x, int n) {
     // Recursive calls create significant function call overhead
@@ -12,6 +13,7 @@ int binarySearch(int mi, int mx, int x, int n) {
 ```
 
 2. Inefficient Calculation Method:
+
 ```cpp
 ll caluclate(int a[], int n, int h) {
     ll cnt = 0;
@@ -27,18 +29,21 @@ ll caluclate(int a[], int n, int h) {
 ```
 
 3. Complex Condition Tracking:
+
 ```cpp
 bool ans1 = false;  // Additional boolean flag adds computational overhead
 int ans = -1;       // Unnecessary state tracking
 ```
 
 Specific Time Complexity Issues:
+
 - Recursive calls increase stack depth
 - Multiple function calls for each binary search iteration
 - Redundant state management
 - More complex logic compared to iterative approach
 
 Corrected Approach:
+
 ```cpp
 while (l <= r) {
     ll mid = (l + r) / 2;  // Direct mid-point calculation
