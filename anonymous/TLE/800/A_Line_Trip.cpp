@@ -27,7 +27,8 @@ int main()
             }
         }
         if(2*(x-a[n-1])>m)
-        {
+        { 
+            
             cout<<2*(x-a[n-1])<<endl;
         }
         else
