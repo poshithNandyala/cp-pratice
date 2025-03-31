@@ -30,9 +30,10 @@ int main()
         ll m = a.size();
         for (ll i = 0; i < m; i++)
         {
-             auto it=upper_bound(a.begin(),a.end(),id[i]);
-            if(it!=a.end()){
-                ans+=a.end()-it;
+            auto it = upper_bound(a.begin(), a.end(), id[i]);
+            if (it != a.end())
+            {
+                ans += a.end() - it;
             }
         }
         cout << ans << endl;
