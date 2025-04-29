@@ -3,54 +3,62 @@ using namespace std;
 
 #define ll long long
 #define endl '\n'
-#define fastio \
+#define fastio                        \
     ios_base::sync_with_stdio(false); \
     cin.tie(nullptr);
 
 int main()
 {
-    fastio
-    int t;
+    fastio int t;
     cin >> t;
     while (t--)
     {
-        ll n,m;
+        ll n, m;
         cin >> n >> m;
-        ll ans=n;
-        ll z=0;
-        while(ans>0 && ans%10 == 0){
-            ans/=10;
+        ll ans = n;
+        ll z = 0;
+        while (ans > 0 && ans % 10 == 0)
+        {
+            ans /= 10;
             z++;
         }
-        ll k=1;
-        while(ans >0 && ans%5 == 0){
-            ans/=5;
-            if(k*2 <= m){
-                k*=2;
+        ll k = 1;
+        while (ans > 0 && ans % 5 == 0)
+        {
+            ans /= 5;
+            if (k * 2 <= m)
+            {
+                k *= 2;
             }
-            else{
-               break;
-            }
-        }
-        while(ans >0 && ans%2 == 0){
-            ans/=2;
-            if(k*5 <= m){
-                k*=5;
-            }
-            else{
+            else
+            {
                 break;
             }
         }
-        while(k*10 <= m){
-            k*=10;
+        while (ans > 0 && ans % 2 == 0)
+        {
+            ans /= 2;
+            if (k * 5 <= m)
+            {
+                k *= 5;
+            }
+            else
+            {
+                break;
+            }
         }
-        k  =  (m/k)*k;
-        if(!z && k==1){
-            cout<<n*m<<endl;
+        while (k * 10 <= m)
+        {
+            k *= 10;
         }
-        else{
-            cout<<n*k<<endl;
+        k = (m / k) * k;
+        if (!z && k == 1)
+        {
+            cout << n * m << endl;
         }
-
+        else
+        {
+            cout << n * k << endl;
+        }
     }
 }
