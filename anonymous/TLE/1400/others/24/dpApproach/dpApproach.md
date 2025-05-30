@@ -1,3 +1,5 @@
+# Dynamic Programming Approach: Counting Positive and Negative Product Subarrays
+
 Let’s peel back all the formality and look at exactly **what’s happening**, step by step, with a tiny example.
 
 ---

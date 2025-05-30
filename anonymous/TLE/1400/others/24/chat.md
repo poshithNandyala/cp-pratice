@@ -1,3 +1,5 @@
+# Prefix-Parity Trick for Counting Positive and Negative Subsegments
+
 Let’s walk through this problem step by step, build up the intuition, and then see why the “prefix-parity” trick gives us an $O(n)$ algorithm.
 
 ---
@@ -162,8 +164,8 @@ Equivalently, one can accumulate as we scan from left to right, keeping counters
 
 * Initialize
 
-  ```
-  cnt[0] = 1   // we’ve “seen” one prefix of parity 0: p[0]=0
+  ```text
+  cnt[0] = 1   // we've "seen" one prefix of parity 0: p[0]=0
   cnt[1] = 0
   current_parity = 0
   pos = 0      // answer accumulator for positive subsegments
@@ -177,6 +179,7 @@ Equivalently, one can accumulate as we scan from left to right, keeping counters
      ```cpp
      pos += cnt[current_parity];
      ```
+
   3. Record that we have now seen one more prefix of this parity:
 
      ```cpp
@@ -185,18 +188,18 @@ Equivalently, one can accumulate as we scan from left to right, keeping counters
 
 * After the loop,
 
-  $$
+  $
   \text{pos} = \sum_{i=1}^n \; \bigl|\{\,j < i : p[j]=p[i]\}\bigr|,
-  $$
+  $
 
   exactly $\binom{c_0}{2} + \binom{c_1}{2}$.
 
 * Total subsegments = $n(n+1)/2$.  So
 
-  $$
-  \text{neg} 
+  $
+  \text{neg}
   = \frac{n(n+1)}{2} - \text{pos}.
-  $$
+  $
 
 This is $O(n)$ time, uses just a few integer variables, and handles up to $n=2\cdot10^5$ in a fraction of a second.
 
@@ -206,9 +209,9 @@ This is $O(n)$ time, uses just a few integer variables, and handles up to $n=2\c
 
 Take the sample
 
-$$
+$
 a = [\,5,\,-3,\,3,\,-1,\,1\,].
-$$
+$
 
 * $i=0$: parity = 0.  counts: $\;cnt[0]=1,\;cnt[1]=0$.
 * $i=1$, $a_1=5>0$: parity stays 0.
@@ -235,29 +238,29 @@ $$
 Total subsegments = $\tfrac{5\cdot6}{2}=15$.
 So
 
-$$
+$
 \text{pos}=7,\quad
 \text{neg}=15-7=8,
-$$
+$
 
 matching the sample output.
 
 ---
 
-### Why it’s so slick
+### Why it's so slick
 
 * **No nested loops.** We do a single pass.
 * We never multiply big products; we only track a **single bit** of information per prefix.
-* We leverage the combinatorial identity “number of equal‐parity pairs” in a dynamic way as we scan.
+* We leverage the combinatorial identity "number of equal‐parity pairs" in a dynamic way as we scan.
 
 ---
 
 ### Related topics you might want to understand more deeply
 
-* **Prefix sums (or here, prefix parities)** — a fundamental trick for turning “sum/product over arbitrary subarray” queries into $O(1)$ queries given precomputation.
-* **Combinatorial pairs counting** $\binom{k}{2} = k(k-1)/2$ and the dynamic variant “as you scan, if you’ve seen $c$ items of type X so far, you can form $c$ new pairs with the next such item.”
+* **Prefix sums (or here, prefix parities)** — a fundamental trick for turning "sum/product over arbitrary subarray" queries into $O(1)$ queries given precomputation.
+* **Combinatorial pairs counting** $\binom{k}{2} = k(k-1)/2$ and the dynamic variant "as you scan, if you've seen $c$ items of type X so far, you can form $c$ new pairs with the next such item."
 * **XOR** as addition mod 2: flipping a bit each time you encounter a negative number.
 
-Once you see this pattern, it recurs in many problems about “number of subarrays whose sum is divisible by $K$,” or “number of subarrays with even sum,” etc.—you just replace parity with “sum mod $K$” or similar.
+Once you see this pattern, it recurs in many problems about "number of subarrays whose sum is divisible by $K$," or "number of subarrays with even sum," etc.—you just replace parity with "sum mod $K$" or similar.
 
 I hope this clears up both **what** is being counted and **why** the prefix-parity method is the ideal $O(n)$ solution!
