@@ -100,6 +100,30 @@ private:
     	postorder(node->right);
     	cout<<node->value<<" ";
     }
+    void morrisInorder(Node *root){
+           Node *curr=root;
+           while(curr){
+            if(curr->left==nullptr){
+                cout<<curr->value<<" ";
+                curr=curr->right;
+            }
+            else{
+                Node *pred=curr->left;
+                while(pred->right && pred->right!=curr){
+                    pred=pred->right;
+                }
+                if(pred->right==nullptr){
+                    pred->right=curr;
+                    curr=curr->left;
+                }
+                else{
+                    pred->right=nullptr;
+                    cout<<curr->value<<" ";
+                    curr=curr->right;
+                }
+            }
+           }
+    }
    bool balanced(Node *node){
     if(node==nullptr){
         return true;
@@ -198,6 +222,9 @@ void alltraversals(){
 	cout<<"preorder :";
 	preorder(root);
 	cout<<endl;
+    cout<<"morrisInorder :";
+    morrisInorder(root);
+    cout<<endl;
 	cout<<"inorder :";
 	inorder(root);
 	cout<<endl;
