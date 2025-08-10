@@ -7,7 +7,7 @@ A personal Competitive Programming (CP) repository to organize problems I've sol
 ## 📁 Folder Structure (inside `anonymous/`)
 
 ### 🔹 `TLE/`
-Problems from the [TLE: Time Limit Eliminators CP Sheet](https://www.tle-eliminators.com/cp-sheet), organized by Codeforces-style difficulty rating (e.g., `800`, `1000`, `1200`, etc.).  
+Problems from the [TLE: Time Limit Eliminators CP Sheet](https://www.tle-eliminators.com/cp-sheet), organized by Codeforces-style difficulty rating (e.g., `900`, `1000`, `1200`, etc.).  
 Useful for rating-based, structured practice.
 
 ### 🔹 `contests/`
