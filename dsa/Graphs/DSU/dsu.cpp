@@ -11,14 +11,12 @@ void make_set(int n) {
     }
 }
 
-// Path Compression
 int find_leader(int x) {
     if (par[x] != x)
         par[x] = find_leader(par[x]);
     return par[x];
 }
 
-// Union by Size
 void merge(int x, int y) {
     x = find_leader(x);
     y = find_leader(y);
@@ -31,7 +29,6 @@ void merge(int x, int y) {
     size[x] += size[y];
 }
 
-// Count components
 int count_components(int n) {
     int cnt = 0;
     for (int i = 0; i < n; i++) {
