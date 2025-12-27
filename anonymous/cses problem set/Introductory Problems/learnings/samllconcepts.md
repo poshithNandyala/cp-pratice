@@ -1,0 +1,1 @@
+- Offset is a controlled shift from a reference index or value to simplify indexing and boundary handling.
