@@ -1,0 +1,1 @@
+[link](https://www.hackerearth.com/problem/algorithm/dijkstras/?purpose=login&source=problem-page&update=google)
